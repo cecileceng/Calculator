@@ -83,15 +83,33 @@ $(document).ready(function(){
 var firstNumber = "";
 var secondNumber = 0;
 var total = 0;
+var numChoice = "";
+var operator = "";
+
 
 //Functions =========================================================================================================================================================
-var value = button1.value;
-function pickNum($value, $id) {
-    $('$id')
+//var value = button1.value;
+function pickNum($value, $class) {
+    $($class).on( 'click', function() {
+        firstNumber += $(this).attr("value");
+    });
 }
-$('#button1').on("click", function() {
-    console.log($(this).attr("value"));
+
+
+$('.number').on("click", function() {
+    firstNumber+= $(this).attr("value");
+    console.log(firstNumber);
 });
+
+var stringToNum = parseInt(firstNumber);
+console.log(typeof stringToNum);
+
+$('.operator').on("click", function() {
+    operator = $(this).attr("value");
+    console.log(operator);
+});
+
+
 
 
 //Extras =========================================================================================================================================================
